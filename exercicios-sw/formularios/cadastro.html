@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Cadastro</title>
     <link rel="stylesheet" href="cadastro.css">
 </head>
 <body>
@@ -11,12 +11,20 @@
         <h1>Cadastro</h1>
         <form action="">
             <label for=""><br>
+                <p><b>Nome completo:*</b></p>
+                <input type="text">
                 <p><b>E-mail:*</b></p>
                 <input type="text">
+                <p><b>Telefone:*</b></p>
+                <input type="text" placeholder=" digite o númerp do telefone">
+                <p><b>CPF:*</b></p>
+                <input type="text" placeholder=" 00000000000">
                 <p><b>Senha:*</b></p>
                 <input type="text">
+                <p><b>Confirmar senha:*</b></p>
+                <input type="text">
                 <button id="entrar">Entrar</button>
-                <button id="cadastro">Cadastrar-se</button>
+                <button type="button" id="cadastro" onclick="window.location.href='/exercicios-sw/formularios/login.html'">Fazer Login</button>
             </label>
         </form>
     </div>
