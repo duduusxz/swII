@@ -29,10 +29,56 @@
                 <label for="confirmarSenha">Confirmar senha</label>
                 <input type="password" id="confirmarSenha" name="confirmarSenha" required>
 
-                <button class="btn-1" type="submit" id="cadastro">Entrar</button>
+                <button class="btn-1" type="submit" id="cadastro">Cadastrar</button>
                 <button class="btn-2" type="button" id="fazerLogin" onclick="window.location.href='/exercicios-sw/formularios/login.html'">Fazer Login</button>
             </form>
         </div>
     </div>
+
+    <script>
+        // Adiciona um listener para o evento 'submit' do formulário com id "cadastroForm"
+// A função será executada sempre que o usuário tentar enviar o formulário
+document.getElementById("cadastroForm").addEventListener("submit", function (event) {
+    // Captura os valores dos campos do formulário e remove espaços em branco extras
+    const email = document.getElementById("email").value.trim();
+    const telefone = document.getElementById("telefone").value.trim();
+    const cpf = document.getElementById("cpf").value.trim();
+    const senha = document.getElementById("senha").value;
+    const confirmaSenha = document.getElementById("confirmaSenha").value;
+    // Define expressões regulares para validação dos campos
+    // Validação de e-mail no formato padrão (ex: nome@dominio.com) const emailRegex/^[^\s]+[^\s]+\.[^\s]+$/;
+    // Validação de telefone brasileiro:
+    // Pode conter ou não parenteses no código de área,
+    // opcional espaço, e hifen opcional no número
+    // Exemplo válido: (11) 91111-2222 อน 11911112222
+    const telefoneRegex = /^\(\d{2}\)?\?\d{4,5}-?\d(4)$/;
+    // Validação do CPF, deve conter exatamente 11 digitos numéricos consecutivos
+    /// Sem pontos, hífens ou espaços
+    const cpfRegex = /^\d{11}$/;
+    // Valida o e-mail digitado
+    if (lemailRegex.test(email)) {
+        alert("Por favor, insira um e-mail válido.");
+        event.preventDefault(); // Impede o envio do formulário para correção
+        return; // Sai da função para que o usuário corrija
+    }
+    // Valida o telefone digitado
+    if (telefoneRegex.test(telefone)) {
+        alert("Por favor, insira um número de telefone válido. Ex: (11) 91111-2222");
+        event.preventDefault(); // Impede o envio do formulário
+        return; // Sai da função para que o usuário corrija
+        // Valida o CPF digitado
+    }
+    if (cpfRegex.test(cpf)) {
+        alert("O CPF deve conter exatamente 11 números, sem pontos ou traços."); event.preventDefault(); // Impede o envio
+        return; // Sal da função para que o usuario corrija
+    }
+    // Verifica se a senha e a confirmação de senha são idênticas
+    if (senha !== confirmaSenha) {
+        alert("As senhas não coincidem. Verifique novamente."); event.preventDefault(); // Impede o envio para correção
+        return; // Sai da função para que o usuário corrija
+    }
+});
+// Se chegar aqui, todas as validações passaram e o formulário será enviado normalmente
+    </script>
 </body>
 </html>
